@@ -966,6 +966,12 @@ mark {
   background: #0b0b13;
   color: #fff;
 }
+@media (max-width: 1200px) {
+  .color_switch {
+    top: 65px;
+    right: 10px;
+  }
+}
 
 .demo-back-link {
   position: fixed;

@@ -35,20 +35,16 @@
     ----------------------*/
     NAY.ProgressBar = function(){
         if($('#about').hasClass('active')){
-            console.log('---------fh---------');
             $(".skill-bar .skill-bar-in").each(function () {
                 // var bottom_object = $(this).offset().top + $(this).outerHeight();
                 var bottom_object = ($(this).offset().top + $(this).outerHeight())-50;
                 var bottom_window = $(window).scrollTop() + $(window).height();
                 var progressWidth = $(this).attr('aria-valuenow') + '%';
-                console.log('fd'+bottom_object);
-                console.log('gh'+bottom_window);
-                console.log('------------------');
-            if(bottom_window > bottom_object) {
-                $(this).css({
-                width : progressWidth
-                });
-            }
+                if(bottom_window > bottom_object) {
+                    $(this).css({
+                    width : progressWidth
+                    });
+                }
             });
         }
     }
@@ -210,6 +206,11 @@
                     }
                 }
             });
+            window.addEventListener('hashchange', function(){
+                // window.history.pushState({}, null, '/');
+                window.history.replaceState({}, null, '/');
+                history.go(-1)
+            });
         }
     }
 
@@ -278,7 +279,7 @@
      * Demo
     /* ---------------------------------------------- */
     NAY.Demo = function() {
-        $( "body" ).append( "<label class='color_switch'><i class='fas fa-moon'></i></label><a class='demo-back-link' href='../index.html'><i class='fas fa-arrow-left'></i></a>" );
+        $( "body" ).append( "<label class='color_switch'><i class='fas fa-moon'></i></label>" );
         $(".color_switch").click(function(){
             $(this).toggleClass('m-toggle-toggle');
             $('body').toggleClass('theme-light');
