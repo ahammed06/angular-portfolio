@@ -276,17 +276,6 @@
     }
 
     /* ---------------------------------------------- /*
-     * Demo
-    /* ---------------------------------------------- */
-    NAY.Demo = function() {
-        $( "body" ).append( "<label class='color_switch'><i class='fas fa-moon'></i></label>" );
-        $(".color_switch").click(function(){
-            $(this).toggleClass('m-toggle-toggle');
-            $('body').toggleClass('theme-light');
-        });
-    }
-
-    /* ---------------------------------------------- /*
      * All Functions
     /* ---------------------------------------------- */
     // loadScript
@@ -320,7 +309,6 @@
         NAY.glitch(),
         NAY.VideoBG(),
         NAY.MenuTogglerClose(),
-        NAY.Demo(),
         NAY.Owl(),
         NAY.ProgressBar(),
         $('[data-toggle="tooltip"]').tooltip({ trigger: "hover" });
