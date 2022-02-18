@@ -1,1 +1,173 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+
+/* PRELOADER
+================================================== */
+
+body .preloader::before,
+body .preloader::after {
+  background: #222;
+}
+
+body.theme-light .preloader::before, body.theme-light .preloader::after {
+    background: #ddd;
+}
+
+body .preloader-container h1 {
+  color: #fff;
+}
+
+body.theme-light .preloader-container h1 {
+    color: #000;
+  }
+
+.preloader {
+position: fixed;
+left: 0;
+top: 0;
+/* bottom: 0;
+right: 0; */
+z-index: 111111111;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+transition: .3s all ease;
+/* pointer-events: none; */
+backface-visibility: hidden;
+width: 100%;
+height: 100%;
+}
+
+.preloader::before, .preloader::after {
+content: '';
+position: absolute;
+left: 0;
+right: 0;
+transition: .2s linear;
+transform: translateY(0);
+pointer-events: none;
+}
+
+.preloader::before {
+top: 0;
+bottom: 50%;
+background: #fff;
+}
+
+.preloader::after {
+top: 50%;
+bottom: 0;
+background: #fff;
+}
+
+.preloader::before, .preloader::after {
+transition: .4s linear;
+}
+
+.preloader::before {
+transform: translateY(0%);
+}
+
+.preloader::after {
+transform: translateY(0%);
+}
+
+.preloader.loaded::before, .preloader.loaded::after {
+transition: .4s linear;
+}
+
+.preloader.loaded::before {
+transform: translateY(-101%);
+}
+
+.preloader.loaded::after {
+transform: translateY(101%);
+}
+
+.preloader.loaded .preloader-container {
+opacity: 0;
+visibility: hidden;
+transition: 0s;
+}
+
+.preloader-text-center {
+transition: 0s .2s;
+}
+
+.preloader-container {
+position: absolute;
+top: 50%;
+transform: translate3d(0, -50%, 0);
+left: 0;
+right: 0;
+z-index: 10;
+text-align: center;
+}
+
+.preloader-container h1 {
+margin: 0;
+padding: 20px 0;
+color: #222;
+font-weight: 700;
+font-size: 42px;
+text-transform: uppercase;
+}
+
+body .progress-line {
+background-color: #fff;
+}
+
+body.theme-light .progress-line {
+    background-color: #111;
+}
+
+#progress-line-container {
+width: 100vw;
+height: 5px;
+overflow: hidden;
+margin: auto;
+background: #2196F3;
+}
+
+.progress-line {
+background: #222;
+margin-top: 0;
+margin-left: -100vw;
+animation-name: progess_animation;
+animation-duration: 2.5s;
+animation-iteration-count: infinite;
+animation-timing-function: linear;
+width: 100vw;
+height: 5px;
+transition: .5s;
+}
+
+@keyframes progess_animation {
+0% {
+    margin-left: -100vw;
+}
+
+100% {
+    margin-left: 100vw;
+}
+}
+
+.animated {
+animation-duration: 1s;
+animation-fill-mode: both;
+opacity: 1;
+}
+
+.animated.infinite {
+animation-iteration-count: infinite;
+}
+
+.animated.hinge {
+animation-duration: 2s;
+}
+
+html:not(.lt-ie10) .not-animated {
+opacity: 0;
+}

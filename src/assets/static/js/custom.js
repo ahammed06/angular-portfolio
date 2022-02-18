@@ -10,7 +10,14 @@
      * Pre load
     /* ---------------------------------------------- */
     NAY.PreLoad = function() {
-        document.getElementById("loading").style.display = "none";
+        // document.getElementById("loading").style.display = "none";
+
+		var preloader = $(".preloader");
+        preloader.addClass('loaded')
+        setTimeout(function(){
+            preloader.hide()
+            $(".preloader .preloader-container").hide()
+        }, 1000);
     }
 
     /* ---------------------------------------------- /*
@@ -276,6 +283,30 @@
     }
 
     /* ---------------------------------------------- /*
+     * Demo
+    /* ---------------------------------------------- */
+    NAY.Demo = function() {
+        $(".color_switch").click(function(){
+            var preloader = $(".preloader");
+            preloader.show()
+            preloader.removeClass('loaded')
+            setTimeout(function(){
+                $(".preloader .preloader-container").show()
+                $(this).toggleClass('m-toggle-toggle');
+                $('body').toggleClass('theme-light');
+                setTimeout(function(){
+                    preloader.addClass('loaded')
+                    $(".preloader .preloader-container").hide()
+                    setTimeout(function(){
+                        preloader.hide()
+                    }, 1000);
+                }, 500);
+            }, 500);
+        });
+    }
+
+
+    /* ---------------------------------------------- /*
      * All Functions
     /* ---------------------------------------------- */
     // loadScript
@@ -311,6 +342,7 @@
         NAY.MenuTogglerClose(),
         NAY.Owl(),
         NAY.ProgressBar(),
+        NAY.Demo(),
         $('[data-toggle="tooltip"]').tooltip({ trigger: "hover" });
     });
 
